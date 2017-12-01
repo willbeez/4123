@@ -70,7 +70,7 @@ g.call(d3.axisBottom(x)
 
 d3.queue()
     .defer(d3.json, "https://d3js.org/us-10m.v1.json")
-    .defer(d3.tsv, "violentcrime.tsv", function(d) { unemployment.set(d.id, +d.rate); })
+    .defer(d3.tsv, "rick1.tsv", function(d) { unemployment.set(d.id, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
@@ -93,7 +93,6 @@ function ready(error, us) {
 }
 
 function showViolentCrime() {
-	d3.selectAll("svg > *").remove();
 	console.log( "You called showViolentCrime" );
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
@@ -102,7 +101,6 @@ function showViolentCrime() {
 }
 
 function showManslaughter() {
-	d3.selectAll("svg > *").remove();
 	console.log( "You called showManslaughter" );
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
@@ -111,7 +109,6 @@ function showManslaughter() {
 }
 
 function showRapeRevised() {
-	d3.selectAll("svg > *").remove();
 	console.log( "You called showRapeRevised" );
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
@@ -120,7 +117,6 @@ function showRapeRevised() {
 }
 
 function showRapeLegacy() {
-	d3.selectAll("svg > *").remove();
 	console.log( "You called showRapeLegacy" );
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
@@ -129,7 +125,6 @@ function showRapeLegacy() {
 }
 
 function showRobbery() {
-	d3.selectAll("svg > *").remove();
 	console.log( "You called showRobbery" );
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
