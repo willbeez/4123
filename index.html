@@ -55,11 +55,11 @@ var crimeMap = d3.map();
 var path = d3.geoPath();
 
 var x = d3.scaleLinear()
-    .domain([1, 15])
+    .domain([1, 10])
     .rangeRound([600, 860]);
 
 var color = d3.scaleThreshold() //Key at top ranging colors from 0 to 9
-    .domain(d3.range(2, 15))
+    .domain(d3.range(2, 10))
     .range(d3.schemeBlues[9]);
 
 function drawLegend() {
