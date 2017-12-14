@@ -108,7 +108,7 @@ drawLegend();
 
 d3.queue() //d3 queues data from tsv files -- difficult to make this work with data.tsv
     .defer(d3.json, "https://d3js.org/us-10m.v1.json")
-    .defer(d3.tsv, "violentcrime.tsv", function(d) { crimeMap.set(d.id, +d.rate); }) 
+    .defer(d3.tsv, "violentcrime.tsv", function(d) { crimeMap.set(d.id, +(d.rate*.1)); }) 
 
     .await(ready);
 
@@ -123,7 +123,7 @@ function ready(error, us) {
       .attr("fill", function(d) { return color(d.rate = crimeMap.get(d.id)); })
       .attr("d", path)
       .append("title") //append tooltips
-      .text(function(d) { return "FIPS: " + d.violent_crime  + "\nRate: " + d.rate ;}); //return is the tooltiop on hover over.
+      .text(function(d) { return "FIPS: " + d.id  + "\nRate: " + d.rate ;}); //return is the tooltiop on hover over.
 
 
       /* ALL this code will create a bar chart - but needs a few fixes and definitely needs aggregated data
@@ -221,7 +221,7 @@ function showViolentCrime() {
 	d3.select(".caption").text("Violent Crime");
 	d3.queue()
 	.defer(d3.json, "https://d3js.org/us-10m.v1.json")
-	.defer(d3.tsv, "violentcrime.tsv", function(d) { crimeMap.set(d.id, +d.rate); })
+	.defer(d3.tsv, "violentcrime.tsv", function(d) { crimeMap.set(d.id, +(d.rate*.1)); })
 	.await(ready);
 }
 
